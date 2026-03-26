@@ -41,11 +41,11 @@ export const AdminLayout = () => {
       <aside className="w-64 bg-navy text-white flex flex-col fixed h-full">
         <div className="p-6 border-b border-white/10">
           <Link to="/admin/dashboard" className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
-              <Stethoscope size={20} />
-            </div>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden p-1 bg-white shadow-sm flex items-center justify-center">
+    <img src="/logo.png" alt="Cardea Logo" />
+  </div>
             <div>
-              <h1 className="font-display font-bold text-lg leading-tight">MedCode</h1>
+              <h1 className="font-display font-bold text-lg leading-tight">Cardea</h1>
               <p className="text-[10px] text-primary-light font-medium tracking-wider uppercase">Admin Portal</p>
             </div>
           </Link>

@@ -11,15 +11,20 @@ export const PublicLayout = () => {
       <header className="border-b border-gray-light bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
-                <Stethoscope size={24} />
-              </div>
-              <div>
-                <h1 className="font-display font-bold text-xl text-navy leading-tight">MedCode</h1>
-                <p className="text-xs text-primary font-medium tracking-wider uppercase">Mangalore Branch</p>
-              </div>
-            </Link>
+            <Link to="/" className="flex items-center gap-2 sm:gap-3">
+  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg overflow-hidden p-1 bg-white shadow-sm flex items-center justify-center">
+    <img src="/logo.png" alt="Cardea Logo" />
+  </div>
+
+  <div className="leading-tight">
+    <h1 className="font-display font-bold text-lg sm:text-xl text-navy">
+      Cardea
+    </h1>
+    <p className="text-[10px] sm:text-xs text-primary font-medium tracking-wider uppercase">
+      Mangalore Branch
+    </p>
+  </div>
+</Link>
             <nav className="hidden md:flex items-center gap-8">
               <Link 
                 to="/courses" 
@@ -50,10 +55,14 @@ export const PublicLayout = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
-                <Stethoscope size={20} />
-              </div>
-              <h2 className="font-display font-bold text-lg">MedCode Institute</h2>
+              <div className="w-8 h-8 bg-white/10 rounded flex items-center justify-center overflow-hidden">
+  <img 
+    src="/logo.png" 
+    alt="Cardea Logo" 
+    className="w-full h-full object-contain"
+  />
+</div>
+              <h2 className="font-display font-bold text-lg">Cardea Institute</h2>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Premier medical coding and billing training institute. Preparing the next generation of healthcare administration professionals.
@@ -77,7 +86,7 @@ export const PublicLayout = () => {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10 text-sm text-gray-500 text-center">
-          &copy; {new Date().getFullYear()} MedCode Institute. All rights reserved.
+          &copy; {new Date().getFullYear()} Cardea Healthcare Solutions Institute. All rights reserved.
         </div>
       </footer>
     </div>

@@ -70,7 +70,7 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="clinical-input pl-10"
-                  placeholder="admin@medcode.edu"
+                  placeholder=""
                 />
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="clinical-input pl-10"
-                  placeholder="••••••••"
+                  placeholder=""
                 />
               </div>
             </div>
