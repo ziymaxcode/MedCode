@@ -43,7 +43,7 @@ export default function Login() {
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-2xl border border-gray-light relative z-10">
         <div className="text-center">
           <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center text-white mx-auto shadow-lg shadow-primary/30 mb-6">
-            <Stethoscope size={32} />
+            <img src="/logo.png" alt="Cardea Logo" />
           </div>
           <h2 className="text-3xl font-display font-bold text-navy">Admin Portal</h2>
           <p className="mt-2 text-sm text-gray-mid">Sign in to manage enrollments and students</p>
