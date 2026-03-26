@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-primary: #0A6E6E;
+  --color-primary-light: #12AAAA;
+  --color-accent: #E8F4F4;
+  --color-navy: #0D2B45;
+  --color-white: #FAFCFC;
+  --color-danger: #C0392B;
+  --color-success: #1A7A4A;
+  --color-gold: #C5972F;
+  --color-gray-light: #E8ECEF;
+  --color-gray-mid: #6B7B8D;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-navy font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Custom Utilities */
+.clinical-input {
+  @apply w-full border-b-2 border-gray-light bg-transparent px-0 py-2 text-navy placeholder:text-gray-mid focus:border-primary focus:outline-none transition-colors;
+}
+
+.clinical-card {
+  @apply bg-white border border-gray-light shadow-sm rounded-lg overflow-hidden border-l-4 border-l-primary;
+}
+
+.bg-hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a6e6e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
