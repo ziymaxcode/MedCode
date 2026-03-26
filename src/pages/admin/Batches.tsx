@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { supabase, MANGALORE_BRANCH_ID } from '../../lib/supabase';
+import { supabase, getBranchId } from '../../lib/supabase';
 import { formatDate } from '../../lib/utils';
 import { Plus, Search, Users, X } from 'lucide-react';
 import { toast } from 'sonner';
@@ -75,12 +75,13 @@ export default function Batches() {
     setIsSubmitting(true);
 
     try {
+      const branchId = await getBranchId();
+
       const { error } = await supabase
         .from('batches')
         .insert([{
           ...formData,
-          branch_id: MANGALORE_BRANCH_ID,
-          enrolled_count: 0
+          branch_id: branchId
         }]);
 
       if (error) throw error;

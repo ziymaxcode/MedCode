@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { supabase, MANGALORE_BRANCH_ID } from '../../lib/supabase';
+import { supabase, getBranchId } from '../../lib/supabase';
 import { formatCurrency, cn } from '../../lib/utils';
 import { CheckCircle2, ChevronRight, ChevronLeft, Stethoscope, AlertCircle } from 'lucide-react';
 
@@ -128,6 +128,8 @@ export default function Enroll() {
     setSubmitError(null);
 
     try {
+      const branchId = await getBranchId();
+      
       // 1. Check if email exists
       const { data: existingStudent } = await supabase
         .from('students')
@@ -153,7 +155,7 @@ export default function Enroll() {
             background_type: data.background_type,
             college_name: data.college_name,
             year_of_passing: data.year_of_passing,
-            branch_id: MANGALORE_BRANCH_ID,
+            branch_id: branchId,
             enrollment_status: 'enquiry'
           })
           .select()
@@ -192,7 +194,7 @@ export default function Enroll() {
         .insert({
           student_id: studentId,
           batch_id: data.batch_id,
-          branch_id: MANGALORE_BRANCH_ID,
+          branch_id: branchId,
           payment_mode: data.payment_mode,
           total_fee: totalFee,
           balance_due: totalFee,

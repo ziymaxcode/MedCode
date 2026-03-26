@@ -49,10 +49,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .from('admin_profiles')
         .select('*')
         .eq('id', userId)
-        .single();
+        .maybeSingle();
       
       if (error) throw error;
-      setProfile(data);
+      
+      if (!data) {
+        // If no profile exists, create a default one
+        const { data: newProfile, error: createError } = await supabase
+          .from('admin_profiles')
+          .insert([
+            {
+              id: userId,
+              role: 'super_admin',
+              full_name: 'Admin User',
+            }
+          ])
+          .select()
+          .single();
+          
+        if (createError) {
+          console.error('Error creating default profile:', createError);
+        } else {
+          setProfile(newProfile);
+        }
+      } else {
+        setProfile(data);
+      }
     } catch (error) {
       console.error('Error fetching profile:', error);
     } finally {
