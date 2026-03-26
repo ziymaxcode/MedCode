@@ -51,8 +51,8 @@ export default function Reports() {
           payment_method,
           payment_date,
           reference_number,
-          enrollments (
-            enrollment_id,
+         enrollments (
+            id,
             students (full_name)
           )
         `)
@@ -64,7 +64,7 @@ export default function Reports() {
         'Receipt Number': p.receipt_number,
         'Date': new Date(p.payment_date).toLocaleDateString(),
         'Student Name': p.enrollments?.students?.full_name || 'N/A',
-        'Enrollment ID': p.enrollments?.enrollment_id || 'N/A',
+        'Enrollment ID': p.enrollments?.id || 'N/A',
         'Amount (₹)': p.amount,
         'Method': p.payment_method,
         'Reference': p.reference_number || 'N/A'
