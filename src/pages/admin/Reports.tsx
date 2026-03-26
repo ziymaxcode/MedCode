@@ -86,20 +86,20 @@ export default function Reports() {
       const { data, error } = await supabase
         .from('enrollments')
         .select(`
-          enrollment_id,
-          status,
-          total_fee,
-          paid_amount,
-          created_at,
-          students (full_name, email, phone, city),
-          batches (batch_name, courses (name))
-        `)
+  id,
+  payment_status,
+  total_fee,
+  amount_paid,
+  created_at,
+  students (full_name, email, phone, city),
+  batches (batch_name, courses (name))
+`)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
 
       const formattedData = data.map((e: any) => ({
-        'Enrollment ID': e.enrollment_id,
+        'Enrollment ID': e.id,
         'Date': new Date(e.created_at).toLocaleDateString(),
         'Student Name': e.students?.full_name || 'N/A',
         'Email': e.students?.email || 'N/A',
@@ -107,9 +107,9 @@ export default function Reports() {
         'City': e.students?.city || 'N/A',
         'Course': e.batches?.courses?.name || 'N/A',
         'Batch': e.batches?.batch_name || 'N/A',
-        'Status': e.status,
+        'Status': e.payment_status,
         'Total Fee (₹)': e.total_fee,
-        'Paid Amount (₹)': e.paid_amount,
+        'Paid Amount (₹)': e.amount_paid,
         'Balance (₹)': e.total_fee - e.paid_amount
       }));
 
